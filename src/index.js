@@ -3,6 +3,8 @@ const mongoose = require('mongoose')
 const cors = require('cors')
 // require('dotenv').config()
 
+const ImcUser = require('./models/Users')
+
 const PORT = process.env.PORT || 3333
 
 const app = express()
@@ -25,14 +27,14 @@ mongoose.connect(
 
 // Definindo schemas
 
-const ImcUserSchema = new mongoose.Schema({ 
-    userName: String,
-    height: Number,
-    weight: Number,
-    imcValue: Number,
-    situation: String
-})
-const ImcUser = mongoose.model('ImcUser', ImcUserSchema)
+// const ImcUserSchema = new mongoose.Schema({ 
+//     userName: String,
+//     height: Number,
+//     weight: Number,
+//     imcValue: Number,
+//     situation: String
+// })
+// const ImcUser = mongoose.model('ImcUser', ImcUserSchema)
 
 
 // criar IMC
