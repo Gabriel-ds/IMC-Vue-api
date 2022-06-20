@@ -1,6 +1,7 @@
 const express = require('express')
 const mongoose = require('mongoose')
 const cors = require('cors')
+require('dotenv').config()
 
 const ImcUser = require('./models/Users')
 
@@ -10,13 +11,13 @@ app.use(express.json())
 app.use(cors())
 
 // Conectando com banco de dados
+const PORT = process.env.PORT || 3333 
 
-mongoose.connect(
-    'mongodb+srv://gabriel:gabriel123@apicluster.rxse8nc.mongodb.net/bancoapi?retryWrites=true&w=majority'
-    )
+
+mongoose.connect(process.env.MONGO_URI)
     .then(() => {
         console.log('MongoDB connect!')
-        app.listen(3333)
+        app.listen(PORT)
     })
     .catch((err) => console.log(err))
 
